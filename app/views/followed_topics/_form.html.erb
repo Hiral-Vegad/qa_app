@@ -1,0 +1,27 @@
+<%= form_with(model: followed_topic) do |form| %>
+  <% if followed_topic.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(followed_topic.errors.count, "error") %> prohibited this followed_topic from being saved:</h2>
+
+      <ul>
+        <% followed_topic.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :follower_id, style: "display: block" %>
+    <%= form.text_field :follower_id %>
+  </div>
+
+  <div>
+    <%= form.label :topic_id, style: "display: block" %>
+    <%= form.text_field :topic_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
